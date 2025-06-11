@@ -39,15 +39,16 @@ export default function CoursesScreen() {
       </View>
 
       <View style={styles.flatWrapper}>
-        <FlatList
-          data={filteredCourses}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.listContent}
-          style={styles.flatList}
-        />
+        <View style={styles.flatListInner}>
+          <FlatList
+            data={filteredCourses}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.listContent}
+          />
+        </View>
       </View>
 
       <TagFilterModal
@@ -80,10 +81,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  flatList: {
-    height: 230,
-  },
+
   listContent: {
     paddingHorizontal: 12,
+  },
+  flatListInner: {
+    height: 230,
   },
 })
